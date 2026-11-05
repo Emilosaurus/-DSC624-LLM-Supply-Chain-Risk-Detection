@@ -1,0 +1,85 @@
+{
+  "dataset": "https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis",
+  "dataset_csv": "DataCoSupplyChainDataset.csv",
+  "sample_limit": 12000,
+  "train_rows": 9600,
+  "test_rows": 2400,
+  "train_unique_orders": 8852,
+  "test_unique_orders": 2184,
+  "train_late_risk_fraction": 0.5528125,
+  "test_late_risk_fraction": 0.5308333333333334,
+  "temporal_cutoff": "2017-07-09 23:09:48",
+  "random_seed": 42,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "device": "cpu",
+  "numpy_version": "2.4.6",
+  "scikit_learn_version": "1.6.1",
+  "numeric_features": [
+    "Days for shipment (scheduled)",
+    "Order Item Quantity",
+    "Order Item Product Price",
+    "Order Item Discount",
+    "Order Item Discount Rate",
+    "Order Item Total",
+    "Product Price",
+    "Latitude",
+    "Longitude"
+  ],
+  "text_features": [
+    "Product Name",
+    "Category Name",
+    "Department Name",
+    "Shipping Mode",
+    "Customer Segment",
+    "Order City",
+    "Order State",
+    "Order Country",
+    "Order Region",
+    "Market"
+  ],
+  "excluded_outcome_fields": [
+    "Late_delivery_risk",
+    "Delivery Status",
+    "Days for shipping (real)",
+    "shipping date (DateOrders)",
+    "Order Status",
+    "Benefit per order",
+    "Order Profit Per Order"
+  ],
+  "delta_f1": 0.009719427821509918,
+  "f1_bootstrap_95_ci": [
+    -0.004179166758351236,
+    0.02210323488228192
+  ],
+  "interpretation": "The 95% bootstrap interval spans zero; a clear F1 advantage was not established.",
+  "models": [
+    {
+      "model": "Numeric + transformer",
+      "accuracy": 0.695,
+      "precision": 0.7600767754318618,
+      "recall": 0.6216640502354788,
+      "f1": 0.6839378238341969,
+      "roc_auc": 0.730618658175116,
+      "average_precision": 0.7746960828862619
+    },
+    {
+      "model": "Numeric only",
+      "accuracy": 0.7004166666666667,
+      "precision": 0.797427652733119,
+      "recall": 0.5839874411302983,
+      "f1": 0.674218396012687,
+      "roc_auc": 0.732560068705717,
+      "average_precision": 0.7881656622771226
+    },
+    {
+      "model": "Numeric + TF-IDF",
+      "accuracy": 0.685,
+      "precision": 0.7579681274900398,
+      "recall": 0.597331240188383,
+      "f1": 0.6681299385425812,
+      "roc_auc": 0.732552052109271,
+      "average_precision": 0.7844828769646287
+    }
+  ],
+  "created_utc": "2026-11-05T06:03:05.533765+00:00"
+}
